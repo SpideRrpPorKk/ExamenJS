@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: #111;
+    font-family: Arial;
+    color: white;
+}
+
+#world {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* controls */
+#controls {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 10;
+}
+
+/* HUD */
+#hud {
+    position: fixed;
+    top: 90px;
+    left: 15px;
+    background: rgba(42, 39, 39, 0.823);
+    padding: 16px;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+/* SPEEDOMETER */
+#speedometer {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle,#111,#e5ff0070);
+    border: 4px solid cyan;
+    position: relative;
+}
+
+#needle {
+    position: absolute;
+    width: 5px;
+    height: 80px;
+    background: red;
+    left: 50%;
+    bottom: 50%;
+    transform-origin: bottom;
+}
+
+#needleCenter {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#speedValue {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+/* WORLD BOX */
+#worldBox {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: rgb(137, 138, 116);
+    border-style: double;
+    border: 8px solid rgb(87, 87, 124);
+    overflow: hidden;
+}
+
+/* TRUCK */
+#truck {
+    position: absolute;
+    width: 90px;
+    height: 50px;
+    transform-origin: center;
+}
+
+.body {
+    width: 90px;
+    height: 40px;
+    background: #4128a7;
+    border-radius: 10px;
+}
+
+.wheel {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: #000000;
+    border-radius: 50%;
+}
+
+.fl { top:-4px; left:-6px; }
+.fr { top:-4px; right:-6px; }
+.bl { bottom:-4px; left:-6px; }
+.br { bottom:-4px; right:-6px; }
+
+
+
+
+
+/* MINIMAP */
+#minimap {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 262px;
+    height: 262px;
+    background: #f2f2e8;
+    border-style: groove;
+    border: 4px solid #0037ff;
+    z-index: 10;
+}

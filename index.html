@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Monster Truck Odometry</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="world">
+
+    <div id="controls">
+        <button id="playBtn">▶ PLAY</button>
+        <button id="pauseBtn">⏸ PAUSE</button>
+        <button id="resetBtn">⟲ RESET</button>
+    </div>
+
+    <div id="hud">
+
+        <!-- SPEEDOMETER (BACK TO SIMPLE VERSION) -->
+        <div id="speedometer">
+            <div id="needle"></div>
+            <div id="needleCenter"></div>
+            <div id="speedValue">0 km/h</div>
+        </div>
+
+        <div>X: <span id="xPos">0</span></div>
+        <div>Y: <span id="yPos">0</span></div>
+        <div>Angle: <span id="angle">0</span>°</div>
+
+        <hr>
+
+        <div>FL: <span id="flSpeed">0</span></div>
+        <div>FR: <span id="frSpeed">0</span></div>
+        <div>BL: <span id="blSpeed">0</span></div>
+        <div>BR: <span id="brSpeed">0</span></div>
+
+    </div>
+
+    <div id="worldBox">
+
+        <div id="truck">
+            <div class="body"></div>
+            <div class="wheel fl"></div>
+            <div class="wheel fr"></div>
+            <div class="wheel bl"></div>
+            <div class="wheel br"></div>
+        </div>
+
+    </div>
+
+</div>
+
+<canvas id="minimap"></canvas>
+
+<script src="script.js"></script>
+
+</body>
+</html>
