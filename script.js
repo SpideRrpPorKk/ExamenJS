@@ -18,7 +18,6 @@ const ctx = canvas.getContext("2d");
 canvas.width = 262;
 canvas.height = 262;
 
-/* WORLD */
 const BOX = 500;
 const HALF = BOX / 2;
 
@@ -28,14 +27,12 @@ let angle = 0;
 let speed = 0;
 let running = false;
 
-/* steering */
+
 let steer = 0;
 let steerTarget = 0;
 
-/* trail */
 const trail = [];
 
-/* controls */
 document.getElementById("playBtn").onclick = () => running = true;
 document.getElementById("pauseBtn").onclick = () => running = false;
 
@@ -50,7 +47,7 @@ document.getElementById("resetBtn").onclick = () => {
     running = false;
 };
 
-/* utils */
+
 function clamp(v, min, max){
     return Math.max(min, Math.min(max, v));
 }
@@ -59,15 +56,11 @@ function norm(a){
     return Math.atan2(Math.sin(a), Math.cos(a));
 }
 
-/* =========================
-   SMOOTH SPEED SYSTEM
-   ========================= */
 
-let goalSpeed = 0;     // raw random "driver intent"
-let targetSpeed = 0;   // smoothed intent
+let goalSpeed = 0;    
+let targetSpeed = 0;   
 let timer = 0;
 
-/* generate smooth speed behavior */
 function updateSpeedLogic(){
 
     timer--;
@@ -77,19 +70,17 @@ function updateSpeedLogic(){
         timer = 300 + Math.random() * 400;
     }
 
-    /* smooth transition to goal */
+  
     targetSpeed += (goalSpeed - targetSpeed) * 0.0055;
 
-    /* smooth vehicle speed toward target */
     speed += (targetSpeed - speed) * 0.015;
 
-    /* slight natural drag */
     speed *= 0.995;
 
     speed = clamp(speed, 0, 135);
 }
 
-/* collision */
+
 function collide(){
 
     const bounce = 0.85;
@@ -119,14 +110,14 @@ function collide(){
     angle = norm(angle);
 }
 
-/* MAIN LOOP */
+
 function loop(){
 
     if(running){
 
         updateSpeedLogic();
 
-        /* steering */
+     
         if(Math.random() < 0.02){
             steerTarget = (Math.random() - 0.5) * 0.9;
         }
@@ -134,7 +125,7 @@ function loop(){
         steer += (steerTarget - steer) * 0.02;
         angle += steer * 0.03;
 
-        /* movement */
+      
         const move = speed / 60;
 
         x += Math.cos(angle) * move;
@@ -178,7 +169,7 @@ function loop(){
     requestAnimationFrame(loop);
 }
 
-/* MINIMAP */
+
 function drawMinimap(){
 
     ctx.fillStyle = "#f2f2e8";
@@ -218,7 +209,7 @@ function drawMinimap(){
     ctx.lineTo(canvas.width, cY);
     ctx.stroke();
 
-    /* trail (thin, permanent) */
+  
     ctx.strokeStyle = "red";
     ctx.lineWidth = 1;
 
@@ -236,7 +227,7 @@ function drawMinimap(){
 
     ctx.stroke();
 
-    /* current */
+ 
     ctx.fillStyle = "red";
     ctx.beginPath();
     ctx.arc(cX + x * scale, cY - y * scale, 3, 0, Math.PI * 2);
